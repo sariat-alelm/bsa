@@ -29,6 +29,12 @@ margin:0;
 padding:0;
 }
 
+::selection{
+color:#ffffff;
+background-color:#8d8d8d;
+text-shadow:0px 0px 5px #000000;
+}
+
 body{
 background-image:url("images/background.svg");
 background-attachment:;
@@ -229,6 +235,21 @@ width:50px;
 margin:10px 175px 0 0;
 }
 
+/*loader:*/
+
+/*loader:*/
+.loader-div{
+display:;
+background-color:white;
+width:100%;
+height:50%;
+margin:65% auto;
+text-align:center;
+}
+
+.loader-logo{
+width:250px;
+}
 </style>
 </head>
 <body>
@@ -259,6 +280,12 @@ margin:10px 175px 0 0;
 • المجال العلمي
 </button>
 <button class="menu-content" onclick="document.location.href='#third-field'">
+• المجال الثقافي
+</button>
+<button class="menu-content" onclick="document.location.href='#fourth-field'">
+• المجال التوعوي
+</button>
+<button class="menu-content" onclick="document.location.href='#fifth-field'">
 • المجال الاجتماعي
 </button>
 <button class="menu-content" onclick="document.location.href='#about-us'">
@@ -296,15 +323,31 @@ margin:10px 175px 0 0;
 </div>
 
 <div id="third-field" class="fields s-fields third-field">
+<p class="titles title3">
+المجال الثقافي
+</p>
+<div class="descriptions description3">
+<button onclick="document.location.href='october-war.html'" class="bohoth-btns">
+حرب أكتوبر
+</button>
+</div>
+</div>
+
+<div id="fourth-field" class="fields s-fields fourth-field">
+<p class="titles title3">
+المجال التوعوي
+</p>
+<div class="descriptions description3">
+</div>
+</div>
+
+<div id="fifth-field" class="fields s-fields fifth-field">
 <p class="titles title4">
 المجال الاجتماعي
 </p>
 <div class="descriptions description4">
 <button onclick="document.location.href='palestine-issue.html'" class="bohoth-btns">
 قضية فلسطين
-</button>
-<button onclick="document.location.href='october-war.html'" class="bohoth-btns">
-حرب أكتوبر
 </button>
 </div>
 </div>
@@ -326,9 +369,10 @@ margin:10px 175px 0 0;
 </center>
 <img src="images/copyright.svg" alt="" class="footer-copyright">
 </div>
+<script src="scripts/jquery.js"></script>
 <script>
 function openMenu(){
-document.getElementById("menu-box").style.height = "50%";
+document.getElementById("menu-box").style.height = "70%";
 }
 
 function closeMenu(){
