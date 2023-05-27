@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" style="scroll-behavior:smooth;">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="images/bohoth-sariat-alelm-light.svg"> 
+<title>بحث الذرة</title> 
+<style>
+/*fonts:*/
+@font-face{
+font-family:"amiri";
+src:url("fonts/amiri.woff2") format("woff2");
+}
+@font-face{
+font-family:"uthman";
+src:url("fonts/uthman-tn.woff2") format("woff2");
+}
+@font-face{
+font-family:"kitab";
+src:url("fonts/kitab-regular.woff2") format("woff2");
+}
+@font-face{
+font-family:"icons";
+src:url("fonts/icons.woff2") format("woff2");
+}
+
+*{
+margin:0;
+padding:0;
+}
+
+::selection{
+color:#ffffff;
+background-color:#8d8d8d;
+text-shadow:0px 0px 5px #000000;
+}
+
+body{
+background-image:url("images/background.png");
+background-attachment:fixed;
+}
+
+
+/*header:*/
+
+.header{
+width:100%;
+height:120px;
+background-color:#F9F5DC;
+box-shadow:0px 0px 10px #2C323D;
+position:fixed;
+z-index:1;
+}
+
+.header-logo{
+height:85%;
+float:left;
+margin-top:5px;
+}
+
+.header-wisdom{
+height:85%;
+margin:5px 0 0 -75px;
+}
+
+/*back-button:*/
+.back-icon{
+font-size:35px;
+font-family:icons;
+color:#2B3C56;
+margin:35px 10px 0 0;
+animation:;
+z-index:1;
+position:absolute;
+top:0;
+right:0;
+}
+
+.back-button{
+background-color:transparent;
+border:none;
+position:absolute;
+right:0;
+top:0;
+width:55px;
+height:55px;
+}
+
+/*mix:*/
+img, br{
+pointer-events:none;
+user-select:none;
+}
+
+/*pages:*/
+.pages{
+width:100%;
+margin-top:-10px;
+}
+
+/*footer:*/
+
+.footer{
+width:100%;
+background-color:#2B3C56;
+height:120px;
+box-shadow:0px 0px 10px #2C323D;
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+z-index:-1;
+}
+
+.footer-logo{
+height:100%;
+float:left;
+}
+
+.footer-copyright{
+height:100%;
+float:right;
+position:relative;
+right:-30px;
+top:-120px;
+}
+
+.bader-logo{
+width:50px;
+margin:10px 175px 0 0;
+}
+
+
+/*iframe:*/
+
+.iframe{
+border:none;
+border-radius:15px;
+background-color:transparent;
+height:100cm;
+width:100%;
+margin:0;
+padding-bottom: 250px;
+}
+
+/*download-button:*/
+.download-btn-div{
+padding-top:200px;
+text-align:center;
+}
+
+.download-btn{
+background-image:linear-gradient(-124deg,#F9F5DC,#D9C179);
+background-attachment:fixed;
+border:5px double #2B3C56;
+font-family:amiri;
+font-size:18px;
+color:#2B3C56;
+padding:10px;
+border-radius:30px 5px;
+text-align:center;
+-webkit-transition-duration: 0.1s;
+transition-duration: 0.1s;
+}
+
+.download-btn:active{
+border:5px double #2B3C56;
+background-image:linear-gradient(124deg,#F9F5DC,#D9C179);
+background-attachment:fixed;
+color:#2B3C56;
+padding:10px;
+border-radius:30px 5px;
+text-align:center;
+font-family:amiri;
+font-size:19px;
+-webkit-transition-duration: 0.1s;
+transition-duration: 0.1s;
+}
+</style>
+</head>
+<body>
+<div class="header">
+<img src="images/project-logo.svg" alt="" class="header-logo">
+<center>
+<img src="images/wisdom.svg" alt="" class="header-wisdom">
+</center>
+<button onclick="document.location.href = 'bsa.html'" class="back-button">
+<span class="back-icon" id="back-icon">b</span>
+</button>
+</div>
+<div class="download-btn-div">
+<button class="download-btn" onclick="document.location.href='pdfs/atom/الذرة.pdf'">
+اضغط هنا؛ لتحميل البحث بصيغة ملف pdf.
+</button>
+</div>
+<br><br><br><br>
+<div class="footer">
+<img src="images/bohoth-sariat-alelm-light.svg" alt="" class="footer-logo">
+<center>
+<img src="images/bader-logo.svg" alt="" class="bader-logo">
+</center>
+<img src="images/copyright.svg" alt="" class="footer-copyright">
+</div>
+<iframe src="https://sariat-alelm.github.io/bsa/pdfs/atom/i-frame.html" class="iframe">
+<br><br><br><br>
+<script>
+</script>
+</body>
+</html>
