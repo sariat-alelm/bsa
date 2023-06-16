@@ -1,1 +1,11 @@
-
+{
+"name": "بحوث سارية العِلم",
+"short_name": "بحوث سارية العِلم",
+"description": "جمعٌ يسير من البحوث بمختلف المجالات التي تهدف إلى نشر العلم والثقافة والوعي عند شباب المستقبل الباهر",
+"lang": "ar",
+"start_url": "/bsa/bsa.html",
+"display": "standalone",
+"theme_color": "#ffffff",
+"background_color": "#ffffff",
+"icons": [{ "src": "bohoth-sariat-alelm.svg", "sizes": "500x500", "type": "image/svg+xml" }]
+}
