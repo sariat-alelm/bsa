@@ -2,7 +2,7 @@
 <html dir="rtl" lang="ar" style="scroll-behavior:smooth;">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 <meta name="theme-color" content="#F9F5DC">
 <link rel="apple-touch-icon" href="bohoth-sariat-alelm.svg" sizes="500x500">
 <link rel="manifest" href="pwa/manifest.json"/>
@@ -418,6 +418,15 @@ document.getElementById("menu-box").style.height = "600px";
 function closeMenu(){
 document.getElementById("menu-box").style.height = "0";
 }
+
+window.addEventListener('beforeinstallprompt', function(event) {
+event.preventDefault();
+var btnAdd = document.getElementById("btnAdd");
+btnAdd.style.display = "block";
+btnAdd.addEventListener('click', function() {
+event.prompt();
+});
+});
 </script>
 <script>
 if (!navigator.serviceWorker.controller){
