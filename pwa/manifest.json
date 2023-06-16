@@ -5,7 +5,7 @@
 "lang": "ar",
 "start_url": "/bsa/bsa.html",
 "display": "standalone",
-"theme_color": "#ffffff",
-"background_color": "#ffffff",
+"theme_color": "#F9F5DC",
+"background_color": "#F9F5DC",
 "icons": [{ "src": "bohoth-sariat-alelm.svg", "sizes": "500x500", "type": "image/svg+xml" }]
 }
