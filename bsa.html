@@ -2,7 +2,10 @@
 <html dir="rtl" lang="ar" style="scroll-behavior:smooth;">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no"/>
+<meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" href="bohoth-sariat-alelm.svg" sizes="500x500">
+<link rel="manifest" href="pwa/manifest.json"/>
 <link rel="icon" href="images/bohoth-sariat-alelm-light.svg"> 
 <title>بحوث سارية العِلم</title> 
 <style>
@@ -67,6 +70,7 @@ margin-top:5px;
 .header-wisdom{
 height:85%;
 margin:5px 0 0 -75px;
+
 }
 
 /*menu:*/
@@ -413,6 +417,13 @@ document.getElementById("menu-box").style.height = "600px";
 
 function closeMenu(){
 document.getElementById("menu-box").style.height = "0";
+}
+</script>
+<script>
+if (!navigator.serviceWorker.controller){
+navigator.serviceWorker.register("pwa/sw.js").then(function(reg) {
+console.log("تم التحميل بنجاح!" + reg.scope);
+});
 }
 </script>
 </body>
