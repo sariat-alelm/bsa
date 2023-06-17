@@ -429,11 +429,13 @@ event.prompt();
 });
 </script>
 <script>
+window.addEventListener('load', () => {
 if (!navigator.serviceWorker.controller){
 navigator.serviceWorker.register("pwa/sw.js").then(function(reg) {
 console.log("تم التحميل بنجاح!" + reg.scope);
 });
 }
+});
 </script>
 </body>
 </html>
