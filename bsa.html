@@ -34,7 +34,7 @@ padding:0;
 
 ::selection{
 color:#ffffff;
-background-color:#8d8d8d;
+background-color:#808080;
 text-shadow:0px 0px 5px #000000;
 }
 
@@ -401,6 +401,7 @@ width:250px;
 </div>
 </div>
 </div>
+<button id="install-button" style="display: none;" onclick="installPWA();">Install PWA</button>
 <div style="height:150px;"></div>
 <div class="footer">
 <img src="images/bohoth-sariat-alelm-light.svg" alt="" class="footer-logo">
@@ -418,24 +419,48 @@ document.getElementById("menu-box").style.height = "600px";
 function closeMenu(){
 document.getElementById("menu-box").style.height = "0";
 }
-
-window.addEventListener('beforeinstallprompt', function(event) {
-event.preventDefault();
-var btnAdd = document.getElementById("btnAdd");
-btnAdd.style.display = "block";
-btnAdd.addEventListener('click', function() {
-event.prompt();
-});
-});
 </script>
 <script>
-window.addEventListener('load', () => {
-if (!navigator.serviceWorker.controller){
-navigator.serviceWorker.register("pwa/sw.js").then(function(reg) {
-console.log("تم التحميل بنجاح!" + reg.scope);
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('sw.js')
+.then((registration) => {
+console.log('Service Worker registered with scope:', registration.scope);
+})
+.catch((error) => {
+console.log('Service Worker registration failed:', error);
 });
 }
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+// Prevent the default prompt behavior.
+e.preventDefault();
+// Save the event so it can be used later.
+deferredPrompt = e;
+// Show your custom UI element (e.g., a button) to let users install your PWA.
+showInstallButton();
 });
+
+function showInstallButton() {
+const installButton = document.getElementById('install-button');
+installButton.style.display = 'block';
+}
+
+function installPWA() {
+if (deferredPrompt) {
+deferredPrompt.prompt();
+deferredPrompt.userChoice.then((choiceResult) => {
+if (choiceResult.outcome === 'accepted') {
+console.log('User accepted the installation');
+}
+else {
+console.log('User dismissed the installation');
+}
+deferredPrompt = null;
+});
+}
+}
 </script>
 </body>
 </html>
