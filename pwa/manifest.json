@@ -3,7 +3,7 @@
 "short_name": "بحوث سارية العِلم",
 "description": "جمعٌ يسير من البحوث بمختلف المجالات التي تهدف إلى نشر العلم والثقافة والوعي عند شباب المستقبل الباهر",
 "lang": "ar",
-"start_url": "/bsa/bsa.html",
+"start_url": "/bsa/",
 "display": "standalone",
 "theme_color": "#000000",
 "background_color": "#ffffff",
