@@ -435,13 +435,7 @@ console.log('Service Worker registration failed:', error);
 }
 
 window.addEventListener('beforeinstallprompt', (event) => {
-// Prevent Chrome from automatically showing the install prompt
-event.preventDefault();
-
-// Show the browser's install prompt
 event.prompt();
-
-// Wait for the user to install or cancel the installation
 event.userChoice.then((choiceResult) => {
 if (choiceResult.outcome === 'accepted') {
 console.log('User accepted the install prompt');
