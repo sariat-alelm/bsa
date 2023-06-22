@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 <meta name="theme-color" content="#000000">
 <link rel="apple-touch-icon" href="images/bohoth-sariat-alelm.svg">
-<link rel="manifest" href="pwa/manifest.json"/>
+<link rel="manifest" href="manifest.json"/>
 <link rel="icon" href="images/bohoth-sariat-alelm.svg"> 
 <title>بحوث سارية العِلم</title> 
 <style>
@@ -425,7 +425,7 @@ document.getElementById("menu-box").style.height = "0";
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-navigator.serviceWorker.register('pwa/sw.js')
+navigator.serviceWorker.register('sw.js')
 .then((registration) => {
 console.log('Service Worker registered with scope:', registration.scope);
 })
