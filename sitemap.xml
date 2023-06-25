@@ -1,16 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-  <loc>https://sariat-alelm.github.io/bsa/</loc>
-  <lastmod>2023-06-24T17:06:06+00:00</lastmod>
+<loc>https://sariat-alelm.github.io/bsa/</loc>
+<lastmod>2023-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>1.0</priority>
 </url>
-
-
+<url>
+<loc>https://sariat-alelm.github.io/bsa/arabic-language.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://sariat-alelm.github.io/bsa/atom.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://sariat-alelm.github.io/bsa/bosnia-and-herzegovina-issue.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://sariat-alelm.github.io/bsa/drugs-hazards.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/electricity.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/global-events-affecting-the-world.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/october-war.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/ozone-hole.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/palestine-issue.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/pillars-of-iman.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/pollution.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/smoking-hazards.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/syrian-crisis.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/tajweed-of-quran.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<loc>https://sariat-alelm.github.io/bsa/the-last-of-prophets.html</loc>
+<lastmod>2022-06-25</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
 </urlset>
