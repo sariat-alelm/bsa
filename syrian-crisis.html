@@ -4,10 +4,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 <meta charset="UTF-8"/>
 <meta name="author" content="سارية العلم">
-<meta name="title" content="بحث عن الأزمة السورية - بحوث سارية العلم">
-<meta name="description" content="بحث عن الأزمة السورية، كيف تأثر أطفال سوريا، مالذي تفعله اليونيسيف لمساعدة أطفال سوريا؟ - مقدم من بحوث سارية العلم.">
-<link rel="apple-touch-icon" href="bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
-<link rel="icon" href="bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml"> 
+<meta name="title" content="بحث عن الأزمة السورية | بحوث سارية العلم">
+<meta name="description" content="بحث عن الأزمة السورية - كيف تأثر أطفال سوريا - مالذي تفعله اليونيسيف لمساعدة أطفال سوريا؟ - مقدم من بحوث سارية العلم.">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.json"/>
+<link rel="apple-touch-icon" href="bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
+<link rel="icon" href="bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png"> 
 <title>بحث عن الأزمة السورية - بحوث سارية العلم</title> 
 <style>
 /*fonts:*/
@@ -33,6 +35,10 @@ margin:0;
 padding:0;
 }
 
+html{
+height:100%;
+}
+
 ::selection{
 color:#ffffff;
 background-color:#8d8d8d;
@@ -42,6 +48,9 @@ text-shadow:0px 0px 5px #000000;
 body{
 background-image:url("images/background.png");
 background-attachment:;
+display:flex;
+flex-direction:column;
+min-height:100%;
 }
 
 
@@ -109,11 +118,7 @@ width:100%;
 background-color:#2B3C56;
 height:120px;
 box-shadow:0px 0px 10px #2C323D;
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-z-index:-1;
+margin:auto 0 0 0;
 }
 
 .footer-logo{
@@ -138,13 +143,12 @@ margin:10px 175px 0 0;
 /*iframe:*/
 
 .iframe{
-border:none;
+border:5px double #2B3C56;
 border-radius:15px;
-background-color:transparent;
-height:700px;
-width:100%;
-margin:0;
-margin-bottom: 200px;
+background-color:;
+width:90%;
+height:1000px;
+margin:0 auto;
 }
 
 
@@ -198,6 +202,8 @@ transition-duration: 0.1s;
 اضغط هنا؛ لتحميل البحث بصيغة ملف pdf.
 </button>
 </div>
+<br><br>
+<iframe src="https://sariat-alelm.github.io/bsa/pdfs/syrian-crisis/i-frame.html" class="iframe"></iframe>
 <br><br><br><br>
 <div class="footer">
 <img src="images/bohoth-sariat-alelm-light.svg" alt="" class="footer-logo">
@@ -206,9 +212,16 @@ transition-duration: 0.1s;
 </center>
 <img src="images/copyright.svg" alt="" class="footer-copyright">
 </div>
-<iframe src="https://sariat-alelm.github.io/bsa/pdfs/syrian-crisis/i-frame.html" class="iframe">
-<br><br><br><br>
 <script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('sw.js')
+.then((registration) => {
+console.log('Service Worker registered with scope:', registration.scope);
+})
+.catch((error) => {
+console.log('Service Worker registration failed:', error);
+});
+}
 </script>
 </body>
 </html>
