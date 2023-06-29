@@ -2,16 +2,20 @@
 <html dir="rtl" lang="ar" style="scroll-behavior:smooth;">
 <head>
 <meta name="google-site-verification" content="pN4U0eEiJPUDSfGYH_t_tlj-NVkpjArq_PVdvQEvOyg" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta charset="UTF-8"/>
 <meta name="author" content="سارية العلم">
 <meta name="title" content="بحوث سارية العلم | سارية العلم">
 <meta name="description" content="جمعٌ يسير من البحوث بمختلف المجالات التي تهدف إلى نشر العلم والثقافة والوعي عند شباب المستقبل الباهر.">
 <meta name="theme-color" content="#000000">
 <link rel="manifest" href="manifest.json"/>
+<link rel="apple-touch-icon" href="bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
+<link rel="icon" href="bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
 <link rel="apple-touch-icon" href="bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
 <link rel="icon" href="bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
-<title>بحوث سارية العِلم</title>
+<link rel="Shortcut icon" href="bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
+<link rel="Shortcut icon" href="bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
+<title>بحوث سارية العلم | سارية العلم</title>
 <style>
 /*fonts:*/
 @font-face{
@@ -89,10 +93,16 @@ z-index:1;
 position:absolute;
 top:0;
 right:0;
+transition:font-size 0.1s ease;
+-webkit-transition:font-size 0.1s ease;
 }
 
 .close-icon{
 color:#F9F5DC;
+}
+
+.icon-large {
+font-size:40px;
 }
 
 .menu-button, .close-button{
@@ -104,6 +114,7 @@ top:0;
 width:55px;
 height:55px;
 transition-duration:0.1s;
+-webkit-transition-duration: 0.1s;
 }
 
 .menu-box{
@@ -131,8 +142,10 @@ font-size:20px;
 font-family:amiri;
 background-color:transparent;
 border:none;
-color:#F9F5DC;
+color:rgb(249, 245, 220, 0.5);
 text-shadow:1px 1px 5px #2C323D;
+transition-duration:0.3s;
+-webkit-transition-duration: 0.1s;
 }
 
 .menu-link, .close-link{
@@ -185,7 +198,7 @@ box-shadow:0px 0px 5px #2C323D;
 }
 
 .bohoth-btns{
-border:outset 3px #3C4F75;
+border:outset 4px #3C4F75;
 background-color:#F9F5DC;
 padding:3px 10px;
 font-family:amiri;
@@ -199,14 +212,14 @@ margin:10px 10px;
 }
 
 .bohoth-btns:active{
-border:inset 3px #3C4F75;
+border:inset 4px #3C4F75;
 background-color:#F9F5DC;
 padding:3px 10px;
 font-family:amiri;
 border-radius:30px 5px;
 color:#3C4F75;
 box-shadow:0px 0px 5px #2C323D;
-font-size:16px;
+font-size:18px;
 -webkit-transition-duration: 0.1s;
 transition-duration: 0.1s;
 }
@@ -255,6 +268,82 @@ text-align:center;
 width:250px;
 }
 </style>
+<style>
+/* Styles for screens smaller than 768px */
+@media (max-width: 374px) {
+
+.header{
+height:100px;
+}
+
+.header-logo{
+height:85%;
+float:left;
+margin-top:3px;
+}
+
+.header-wisdom{
+width:180px;
+margin:0px 0 0 -55px;
+}
+
+.menu-icon, .close-icon{
+font-size:25px;
+margin:27px 10px 0 0;
+}
+
+.icon-large {
+font-size:32px;
+}
+
+.menu-box{
+font-size:8px;
+}
+
+.menu-content{
+font-size:17px;
+}
+
+.titles{
+width:35%;
+bottom:-25px;
+font-size:14px;
+}
+
+.descriptions{
+width:70%;
+font-size:14px;
+}
+
+.bohoth-btns{
+font-size:14px;
+}
+
+.bohoth-btns:active{
+font-size:16px;
+}
+
+.footer{
+height:100px;
+}
+
+.footer-logo{
+height:95%;
+float:left;
+}
+
+.footer-copyright{
+height:95%;
+right:-10px;
+top:-100px;
+}
+
+.bader-logo{
+width:40px;
+margin:10px 165px 0 0;
+}
+}
+</style>
 </head>
 <body>
 <div class="header">
@@ -274,25 +363,25 @@ width:250px;
 </button>
 </a>
 <br><br><br><br><br><br>
-<button class="menu-content" onclick="document.location.href='#about-project'">
+<button class="menu-content" id="about-project-btn" onclick="document.location.href='#about-project'">
 • عن المشروع
 </button>
-<button class="menu-content" onclick="document.location.href='#first-field'">
+<button class="menu-content" id="first-field-btn" onclick="document.location.href='#first-field'">
 • المجال الديني
 </button>
-<button class="menu-content" onclick="document.location.href='#second-field'">
+<button class="menu-content" id="second-field-btn" onclick="document.location.href='#second-field'">
 • المجال العلمي
 </button>
-<button class="menu-content" onclick="document.location.href='#third-field'">
+<button class="menu-content" id="third-field-btn" onclick="document.location.href='#third-field'">
 • المجال الثقافي
 </button>
-<button class="menu-content" onclick="document.location.href='#fourth-field'">
+<button class="menu-content" id="fourth-field-btn" onclick="document.location.href='#fourth-field'">
 • المجال التوعوي
 </button>
-<button class="menu-content" onclick="document.location.href='#fifth-field'">
+<button class="menu-content" id="fifth-field-btn" onclick="document.location.href='#fifth-field'">
 • المجال الاجتماعي
 </button>
-<button class="menu-content" onclick="document.location.href='#about-us'">
+<button class="menu-content" id="about-us-btn" onclick="document.location.href='#about-us'">
 • من نحن؟
 </button>
 </div>
@@ -407,38 +496,74 @@ width:250px;
 </center>
 <img src="images/copyright.svg" alt="" class="footer-copyright">
 </div>
-<script src="scripts/jquery.js"></script>
 <script>
 function openMenu(){
-document.getElementById("menu-box").style.height = "600px";
+document.getElementById("menu-box").style.height = "600px"; document.getElementById("menu-icon").classList.add("icon-large");
+setTimeout(function(){
+document.getElementById("menu-icon").classList.remove("icon-large");
+}, 10);
 }
 
 function closeMenu(){
-document.getElementById("menu-box").style.height = "0";
-}
-</script>
-<script>
-if ('serviceWorker' in navigator) {
-navigator.serviceWorker.register('sw.js')
-.then((registration) => {
-console.log('Service Worker registered with scope:', registration.scope);
-})
-.catch((error) => {
-console.log('Service Worker registration failed:', error);
-});
+document.getElementById("menu-box").style.height = "0"; document.getElementById("menu-icon").classList.remove("icon-large"); document.getElementById("close-icon").classList.add("icon-large");
+setTimeout(function(){ document.getElementById("close-icon").classList.remove("icon-large");
+}, 10);
 }
 
-window.addEventListener('beforeinstallprompt', (event) => {
-event.prompt();
-event.userChoice.then((choiceResult) => {
-if (choiceResult.outcome === 'accepted') {
-console.log('User accepted the install prompt');
-}
-else {
-console.log('User dismissed the install prompt');
-}
+var btn1 = document.getElementById("about-project-btn");
+var btn2 = document.getElementById("first-field-btn");
+var btn3 = document.getElementById("second-field-btn");
+var btn4 = document.getElementById("third-field-btn");
+var btn5 = document.getElementById("fourth-field-btn");
+var btn6 = document.getElementById("fifth-field-btn");
+var btn7 = document.getElementById("about-us-btn");
+
+btn1.style.color = "#F9F5DC";
+
+btn1.addEventListener("click", function(){
+resetButtonColors();
+btn1.style.color = "#F9F5DC";
 });
+
+btn2.addEventListener("click", function(){
+resetButtonColors();
+btn2.style.color = "#F9F5DC";
 });
+
+btn3.addEventListener("click", function(event){
+resetButtonColors();
+btn3.style.color = "#F9F5DC";
+});
+
+btn4.addEventListener("click", function(){
+resetButtonColors();
+btn4.style.color = "#F9F5DC";
+});
+
+btn5.addEventListener("click", function(){
+resetButtonColors();
+btn5.style.color = "#F9F5DC";
+});
+
+btn6.addEventListener("click", function(){
+resetButtonColors();
+btn6.style.color = "#F9F5DC";
+});
+
+btn7.addEventListener("click", function(){
+resetButtonColors();
+btn7.style.color = "#F9F5DC";
+});
+
+function resetButtonColors(){
+btn1.style.color = "";
+btn2.style.color = "";
+btn3.style.color = "";
+btn4.style.color = "";
+btn5.style.color = "";
+btn6.style.color = "";
+btn7.style.color = "";
+}
 </script>
 </body>
 </html>
