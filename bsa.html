@@ -393,7 +393,7 @@ margin:10px 165px 0 0;
 
 <div id="about-project" class="fields about-project">
 <p class="titles title1">
-عن المشروع
+عن المشروع <button onclick="document.write(location.href)">see</button>
 </p>
 <div class="descriptions description1">
 جمعٌ يسير من البحوث بمختلف المجالات التي تهدف إلى نشر العلم والثقافة والوعي عند شباب المستقبل الباهر.
@@ -523,7 +523,6 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
   downloadButton.style.display = 'none';
 } else {
   window.addEventListener('beforeinstallprompt', (e) => {
-
     // Store the event for later use
     deferredPrompt = e;
 
@@ -533,6 +532,7 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
 
   downloadButton.addEventListener('click', (e) => {
     // Hide the installation button
+    downloadButton.style.display = 'block';
 
     // Show the installation prompt
     deferredPrompt.prompt();
@@ -540,7 +540,7 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
     // Wait for the user to respond to the prompt
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
-downloadButton.style.display = 'block';
+downloadButton.style.display = 'none';
         console.log('User accepted the installation prompt');
       } else {
         console.log('User dismissed the installation prompt');
@@ -549,6 +549,12 @@ downloadButton.style.display = 'block';
       // Clear the deferredPrompt variable
       deferredPrompt = null;
     });
+  });
+
+  // Hide the installation button when the PWA is installed
+  window.addEventListener('appinstalled', (evt) => {
+    console.log('PWA installed successfully');
+    downloadButton.style.display = 'none';
   });
 }
 
