@@ -532,32 +532,32 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
 }
 
 downloadButton.addEventListener('appinstalled', (evt) =>{
-      console.log('PWA installed successfully');
-      downloadButton.innerHTML = "<button class='menu-content' id='downloadButton' style='display:inline-block; margin-top:0px;'><i class='fas fa-external-link-alt' aria-hidden='true' style='display:inline-block; margin-top:0px;'></i>فتح التطبيق</button>";
+  console.log('PWA installed successfully');
+  downloadButton.innerHTML = "<button class='menu-content' id='downloadButton' style='display:inline-block; margin-top:0px;'><i class='fas fa-external-link-alt' aria-hidden='true' style='display:inline-block; margin-top:0px;'></i>فتح التطبيق</button>";
 });
 
-  downloadButton.addEventListener('click', (e) => {
-    
-      // Show the installation prompt
-      deferredPrompt.prompt();
+downloadButton.addEventListener('click', (e) => {
+  if (deferredPrompt) {
+    // Show the installation prompt
+    deferredPrompt.prompt();
 
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the installation prompt');
-        } else {
-          console.log('User dismissed the installation prompt');
-        }
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the installation prompt');
+      } else {
+        console.log('User dismissed the installation prompt');
+      }
 
-        // Clear the deferredPrompt variable
-        deferredPrompt = null;
-      });
-    } else if (downloadButton.textContent ="فتح التطبيق") {
-      // Open the PWA
-      window.location.href = 'https://sariat-alelm.github.io/bsa/'; // Change this to the URL of your PWA
-    }
-  });
-}
+      // Clear the deferredPrompt variable
+      deferredPrompt = null;
+    });
+  } else if (downloadButton.textContent === "فتح التطبيق") {
+    // Open the PWA
+    window.location.href = 'https://sariat-alelm.github.io/bsa/'; // Change this to the URL of your PWA
+  }
+});
+
 
 var btn1 = document.getElementById("about-project-btn");
 var btn2 = document.getElementById("first-field-btn");
