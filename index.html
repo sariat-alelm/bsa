@@ -520,7 +520,7 @@ const downloadButton = document.getElementById('downloadButton');
 
 // Check if the PWA is already installed
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-  downloadButton.style.display = 'none';
+  downloadButton.textContent = 'فتح التطبيق'; // Change this to the text you want to use for the open app button
 } else {
   window.addEventListener('beforeinstallprompt', (e) => {
     // Store the event for later use
@@ -533,7 +533,7 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
 
 downloadButton.addEventListener('appinstalled', (evt) =>{
   console.log('PWA installed successfully');
-  downloadButton.innerHTML = "<button class='menu-content' id='downloadButton' style='display:inline-block; margin-top:0px;'><i class='fas fa-external-link-alt' aria-hidden='true' style='display:inline-block; margin-top:0px;'></i>فتح التطبيق</button>";
+  downloadButton.textContent = 'فتح التطبيق'; // Change this to the text you want to use for the open app button
 });
 
 downloadButton.addEventListener('click', (e) => {
@@ -552,9 +552,9 @@ downloadButton.addEventListener('click', (e) => {
       // Clear the deferredPrompt variable
       deferredPrompt = null;
     });
-  } else if (downloadButton.textContent === "فتح التطبيق") {
+  } else {
     // Open the PWA
-    window.location.href = 'https://sariat-alelm.github.io/bsa/'; // Change this to the URL of your PWA
+    window.location.href = 'https://sariat-alelm.github.io/ bsa/'; // Change this to the URL of your PWA
   }
 });
 
