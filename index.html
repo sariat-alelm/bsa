@@ -531,30 +531,35 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
   });
 
   downloadButton.addEventListener('click', (e) => {
-    // Hide the installation button
-    downloadButton.style.display = 'block';
+    if (downloadButton.innerHTML === "<button class='menu-content' style='display:inline-block; margin-top:0px;'><i class='fas fa-download aria-hidden='true' style='display:inline-block; margin-top:0px;'></i>تحميل التطبيق</button>") {
+      // Hide the installation button
+      downloadButton.style.display = 'block';
 
-    // Show the installation prompt
-    deferredPrompt.prompt();
+      // Show the installation prompt
+      deferredPrompt.prompt();
 
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
 downloadButton.style.display = 'none';
-        console.log('User accepted the installation prompt');
-      } else {
-        console.log('User dismissed the installation prompt');
-      }
+          console.log('User accepted the installation prompt');
+        } else {
+          console.log('User dismissed the installation prompt');
+        }
 
-      // Clear the deferredPrompt variable
-      deferredPrompt = null;
-    });
+        // Clear the deferredPrompt variable
+        deferredPrompt = null;
+      });
+    } else if (downloadButton.innerHTML === "<button class='menu-content' style='display:inline-block; margin-top:0px;'><i class='fas fa-external-link-alt' aria-hidden='true' style='display:inline-block; margin-top:0px;'></i>فتح التطبيق</button>") {
+      // Open the PWA
+      window.location.href = 'https://sariat-alelm.github.io/bsa/'; // Change this to the URL of your PWA
+    }
   });
 
-  // Hide the installation button when the PWA is installed
+  // Change the button text to "Open App" when the PWA is installed
   window.addEventListener('appinstalled', (evt) => {
     console.log('PWA installed successfully');
-    downloadButton.style.display = 'none';
+    downloadButton.innerHTML = "<button class='menu-content' style='display:inline-block; margin-top:0px;'><i class='fas fa-external-link-alt' aria-hidden='true' style='display:inline-block; margin-top:0px;'></i>فتح التطبيق</button>";
   });
 }
 
