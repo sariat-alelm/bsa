@@ -394,6 +394,7 @@ margin:10px 165px 0 0;
 <div id="about-project" class="fields about-project">
 <p class="titles title1">
 عن المشروع
+<button onclick="document.write(location.href)">see</button>
 </p>
 <div class="descriptions description1">
 جمعٌ يسير من البحوث بمختلف المجالات التي تهدف إلى نشر العلم والثقافة والوعي عند شباب المستقبل الباهر.
@@ -520,7 +521,7 @@ const downloadButton = document.getElementById('downloadButton');
 
 // Check if the PWA is already installed
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-  downloadButton.textContent = 'فتح التطبيق'; // Change this to the text you want to use for the open app button
+  downloadButton.style.display ="none";
 } else {
   window.addEventListener('beforeinstallprompt', (e) => {
     // Store the event for later use
@@ -533,7 +534,7 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
 
 downloadButton.addEventListener('appinstalled', (evt) =>{
   console.log('PWA installed successfully');
-  downloadButton.textContent = 'فتح التطبيق'; // Change this to the text you want to use for the open app button
+  downloadButton.innerHTML = "<i class='fas fa-external-link-alt' aria-hidden='true' style='display:inline-block; margin:0 0 0 8px; position:relative; top:2px;'></i>فتح التطبيق"; // Change this to the text you want to use for the open app button
 });
 
 downloadButton.addEventListener('click', (e) => {
