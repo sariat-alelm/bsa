@@ -526,6 +526,7 @@ console.log('Service Worker registration failed:', error);
 }
 
 let deferredPrompt;
+let pwaLaunched = false;
 const downloadButton = document.getElementById('downloadButton');
 
 // Check if the PWA is already installed
@@ -561,13 +562,17 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
       downloadButton.style.display = 'none';
     }
   });
-}
 
-window.addEventListener('appinstalled', (evt) =>{
-  console.log('PWA installed successfully');
-  downloadButton.style.display = 'none';
-  // Change this to the text you want to use for the open app button
-});
+  window.addEventListener('load', () => {
+    // Check if the PWA was launched for the first time after installation
+    if (!pwaLaunched && window.matchMedia('(display-mode: standalone)').matches) {
+      console.log('PWA installed successfully');
+      pwaLaunched = true;
+      downloadButton.style.display = 'none';
+      // Change this to the text you want to use for the open app button
+    }
+  });
+}
 
 var btn1 = document.getElementById("about-project-btn");
 var btn2 = document.getElementById("first-field-btn");
