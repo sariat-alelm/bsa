@@ -526,7 +526,6 @@ console.log('Service Worker registration failed:', error);
 }
 
 let deferredPrompt;
-let pwaLaunched = false;
 const downloadButton = document.getElementById('downloadButton');
 
 // Check if the PWA is already installed
@@ -565,9 +564,8 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
 
   window.addEventListener('load', () => {
     // Check if the PWA was launched for the first time after installation
-    if (!pwaLaunched && window.matchMedia('(display-mode: standalone)').matches) {
+    if (window.matchMedia('(display-mode: standalone)').matches) {
       console.log('PWA installed successfully');
-      pwaLaunched = true;
       downloadButton.style.display = 'none';
       // Change this to the text you want to use for the open app button
     }
