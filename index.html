@@ -655,6 +655,7 @@ const downloadButton = document.getElementById('downloadButton');
 
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
 downloadButton.style.display ="none";
+document.getElementById("menu-box").style.height = "600px";
 }
 
 else{
