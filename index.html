@@ -525,8 +525,8 @@ console.log('Service Worker registration failed:', error);
 });
 }
 
-
 let deferredPrompt;
+let isPwaInstalled = false;
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -535,6 +535,12 @@ window.addEventListener('beforeinstallprompt', (e) => {
   deferredPrompt = e;
   // Update UI to notify the user they can add to home screen
   document.getElementById('downloadButton').style.display = 'block';
+  // Update button text based on PWA installation status
+  if (isPwaInstalled) {
+    document.getElementById('downloadButton').textContent = 'Open App';
+  } else {
+    document.getElementById('downloadButton').textContent = 'Install App';
+  }
 });
 
 document.getElementById('downloadButton').addEventListener('click', (e) => {
@@ -545,6 +551,7 @@ document.getElementById('downloadButton').addEventListener('click', (e) => {
     if (choiceResult.outcome === 'accepted') {
       console.log('PWA installed');
       document.getElementById('downloadButton').textContent = 'Open App';
+      isPwaInstalled = true;
     } else {
       console.log('PWA installation cancelled');
     }
@@ -555,6 +562,23 @@ document.getElementById('downloadButton').addEventListener('click', (e) => {
 window.addEventListener('appinstalled', (e) => {
   console.log('PWA installed');
   document.getElementById('downloadButton').textContent = 'Open App';
+  isPwaInstalled = true;
+});
+
+// Check if PWA is already installed on page load
+window.addEventListener('load', () => {
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    console.log('PWA is already installed');
+    document.getElementById('downloadButton').textContent = 'Open App';
+    isPwaInstalled = true;
+  }
+});
+
+// Listen for PWA uninstallation
+window.addEventListener('appinstalled', (e) => {
+  console.log('PWA uninstalled');
+  document.getElementById('downloadButton').textContent = 'Install App';
+  isPwaInstalled = false;
 });
 
 
