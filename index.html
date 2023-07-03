@@ -655,7 +655,9 @@ const downloadButton = document.getElementById('downloadButton');
 
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
 downloadButton.style.display ="none";
-document.getElementById("menu-box").style.height = "600px";
+function openMenu(){
+document.getElementById("menu-box").style.height = "600px"; 
+}
 }
 
 else{
@@ -667,7 +669,10 @@ downloadButton.style.display = 'inline-block';
 
 downloadButton.addEventListener('appinstalled', (evt) =>{
 console.log('PWA installed successfully');
-downloadButton.style.display="none"
+downloadButton.style.display="none";
+function openMenu(){
+document.getElementById("menu-box").style.height = "600px"; 
+}
 });
 
 downloadButton.addEventListener('click', (e) => {
@@ -678,6 +683,9 @@ deferredPrompt.userChoice.then((choiceResult) => {
 if (choiceResult.outcome === 'accepted'){
 console.log('User accepted the installation prompt');
 downloadButton.style.display="none";
+function openMenu(){
+document.getElementById("menu-box").style.height = "600px"; 
+}
 }
 
 else{
@@ -690,6 +698,9 @@ deferredPrompt = null;
 
 else{
 downloadButton.style.display="none";
+function openMenu(){
+document.getElementById("menu-box").style.height = "600px"; 
+}
 }
 });
 </script>
