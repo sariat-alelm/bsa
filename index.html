@@ -524,17 +524,23 @@ console.log('Service Worker registered with scope:', registration.scope);
 console.log('Service Worker registration failed:', error);
 });
 }
-    if ('serviceWorker' in navigator && window.matchMedia('(display-mode: standalone)').matches) {
-        // The browser supports PWA and is currently in standalone mode
-        document.getElementById('downloadButton').style.display = 'block';
-    }
 
 let deferredPrompt;
 const downloadButton = document.getElementById('downloadButton');
 
+
+    if ('serviceWorker' in navigator && window.matchMedia('(display-mode: standalone)').matches) {
+        // The browser supports PWA and is currently in standalone mode
+        downloadButton.style.display = 'block';
+    }
+
+else{
+downloadButton.style.display="none";
+}
+
 // Check if the PWA is already installed
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-  downloadButton.style.display ="none";
+  downloadButton.style.display ="block";
 } else {
   window.addEventListener('beforeinstallprompt', (e) => {
     // Store the event for later use
@@ -559,6 +565,7 @@ downloadButton.addEventListener('click', (e) => {
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
         console.log('User accepted the installation prompt');
+downloadButton.innerHTML = "<i class='fas fa-external-link-alt' aria-hidden='true' style='display:inline-block; margin:0 0 0 8px; position:relative; top:2px;'></i>فتح التطبيق";
       } else {
         console.log('User dismissed the installation prompt');
       }
@@ -569,7 +576,7 @@ downloadButton.addEventListener('click', (e) => {
   } else {
     // Open the PWA
 downloadButton.innerHTML = "<i class='fas fa-external-link-alt' aria-hidden='true' style='display:inline-block; margin:0 0 0 8px; position:relative; top:2px;'></i>فتح التطبيق";
-    window.location.href = 'https://sariat-alelm.github.io/bsa/'; // Change this to the URL of your PWA
+    window.location.href = 'https://sariat-alelm.github.io/bsa/','_blank'; // Change this to the URL of your PWA
   }
 });
 
