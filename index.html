@@ -143,9 +143,9 @@ font-size:20px;
 font-family:amiri;
 background-color:transparent;
 border:none;
-color:rgb(249, 245, 220, 0.5);
+color:#F9F5DC;
 text-shadow:1px 1px 5px #2C323D;
-transition-duration:0.3s;
+transition-duration:0.1s;
 -webkit-transition-duration: 0.1s;
 }
 
@@ -156,9 +156,102 @@ right:0px;
 text-align:center;
 }
 
+#downloadButton{
+display:inline-block; 
+margin-top:0px;
+background-color:#F9F5DC; 
+color:#2B3C56; 
+border-radius:16px 4px 16px 4px; 
+padding:3px;
+text-shadow:1px 1px 5px #f3eced;
+border:double 6px #2B3C56;
+}
+
+#downloadIcon{
+display:inline-block;
+margin-top:0px;
+color:#F9F5DC;
+text-shadow:1px 1px 5px #2C323D;
+background-color:#2B3C56; 
+border-radius:50%;
+padding:5px;
+}
+
+#about-project-btn:hover{
+-webkit-tap-highlight-color:transparent;
+text-shadow:0px 0px 20px #F9F5DC;
+font-size:25px;
+transition-duration:0.1s;
+-webkit-transition-duration: 0.1s;
+cursor:pointer;
+}
+
+#first-field-btn:hover{
+-webkit-tap-highlight-color:transparent;
+text-shadow:0px 0px 20px #F9F5DC;
+font-size:25px;
+transition-duration:0.1s;
+-webkit-transition-duration: 0.1s;
+cursor:pointer;
+}
+
+#second-field-btn:hover{
+-webkit-tap-highlight-color:transparent;
+text-shadow:0px 0px 20px #F9F5DC;
+font-size:25px;
+transition-duration:0.1s;
+-webkit-transition-duration: 0.1s;
+cursor:pointer;
+}
+
+#third-field-btn:hover{
+-webkit-tap-highlight-color:transparent;
+text-shadow:0px 0px 20px #F9F5DC;
+font-size:25px;
+transition-duration:0.1s;
+-webkit-transition-duration: 0.1s;
+cursor:pointer;
+}
+
+#fourth-field-btn:hover{
+-webkit-tap-highlight-color:transparent;
+text-shadow:0px 0px 20px #F9F5DC;
+font-size:25px;
+transition-duration:0.1s;
+-webkit-transition-duration: 0.1s;
+cursor:pointer;
+}
+
+#fifth-field-btn:hover{
+-webkit-tap-highlight-color:transparent;
+text-shadow:0px 0px 20px #F9F5DC;
+font-size:25px;
+transition-duration:0.1s;
+-webkit-transition-duration: 0.1s;
+cursor:pointer;
+}
+
+#about-us-btn:hover{
+-webkit-tap-highlight-color:transparent;
+text-shadow:0px 0px 20px #F9F5DC;
+font-size:25px;
+transition-duration:0.1s;
+-webkit-transition-duration: 0.1s;
+cursor:pointer;
+}
+
+#downloadButton:hover{
+-webkit-tap-highlight-color:transparent;
+text-shadow:0px 0px 20px #F9F5DC;
+font-size:25px;
+transition-duration:0.1s;
+-webkit-transition-duration: 0.1s;
+cursor:pointer;
+}
+
 /*mix:*/
 
-img, br{
+img, br, .menu-icon, .close-icon{
 pointer-events:none;
 user-select:none;
 }
@@ -305,6 +398,38 @@ font-size:8px;
 font-size:17px;
 }
 
+#about-project-btn:hover{
+font-size:20px;
+}
+
+#first-field-btn:hover{
+font-size:20px;
+}
+
+#second-field-btn:hover{
+font-size:20px;
+}
+
+#third-field-btn:hover{
+font-size:20px;
+}
+
+#fourth-field-btn:hover{
+font-size:20px;
+}
+
+#fifth-field-btn:hover{
+font-size:20px;
+}
+
+#about-us-btn:hover{
+font-size:20px;
+}
+
+#downloadButton:hover{
+font-size:20px;
+}
+
 .titles{
 width:35%;
 bottom:-25px;
@@ -365,28 +490,28 @@ margin:10px 165px 0 0;
 </a>
 <br><br><br><br><br><br>
 <button class="menu-content" id="about-project-btn" onclick="document.location.href='#about-project'">
-• عن المشروع
+❖ عن المشروع
 </button>
 <button class="menu-content" id="first-field-btn" onclick="document.location.href='#first-field'">
-• المجال الديني
+❖ المجال الديني
 </button>
 <button class="menu-content" id="second-field-btn" onclick="document.location.href='#second-field'">
-• المجال العلمي
+❖ المجال العلمي
 </button>
 <button class="menu-content" id="third-field-btn" onclick="document.location.href='#third-field'">
-• المجال الثقافي
+❖ المجال الثقافي
 </button>
 <button class="menu-content" id="fourth-field-btn" onclick="document.location.href='#fourth-field'">
-• المجال التوعوي
+❖ المجال التوعوي
 </button>
 <button class="menu-content" id="fifth-field-btn" onclick="document.location.href='#fifth-field'">
-• المجال الاجتماعي
+❖ المجال الاجتماعي
 </button>
 <button class="menu-content" id="about-us-btn" onclick="document.location.href='#about-us'">
-• من نحن؟
+❖ من نحن؟
 </button>
-<button class="menu-content" id="downloadButton" style="display:inline-block; margin-top:0px; background-color:red; border-radius:8px;">
-<!--<i class="fas fa-download" aria-hidden="true" style="display:inline-block; margin-top:0px; background-color:green; border-radius:50%;"></i>-->
+<button class="menu-content" id="downloadButton" style="">
+<i class="fas fa-download" id="downloadIcon" aria-hidden="true" style=""></i>
 تحميل التطبيق
 </button>
 </div>
@@ -503,7 +628,7 @@ margin:10px 165px 0 0;
 </div>
 <script>
 function openMenu(){
-document.getElementById("menu-box").style.height = "600px"; document.getElementById("menu-icon").classList.add("icon-large");
+document.getElementById("menu-box").style.height = "650px"; document.getElementById("menu-icon").classList.add("icon-large");
 setTimeout(function(){
 document.getElementById("menu-icon").classList.remove("icon-large");
 }, 10);
@@ -528,127 +653,44 @@ console.log('Service Worker registration failed:', error);
 let deferredPrompt;
 const downloadButton = document.getElementById('downloadButton');
 
-// Check if the PWA is already installed
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-  downloadButton.style.display ="none";
-} else {
-  // Check if the user has already been prompted to install the PWA
-  const pwaPromptShown = localStorage.getItem('pwaPromptShown');
-  if (!pwaPromptShown) {
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Store the event for later use
-      deferredPrompt = e;
+downloadButton.style.display ="none";
+}
 
-      // Show the installation button
-      downloadButton.style.display = 'inline-block';
-    });
-  }
+else{
+window.addEventListener('beforeinstallprompt', (e) => {
+deferredPrompt = e;
+downloadButton.style.display = 'inline-block';
+});
 }
 
 downloadButton.addEventListener('appinstalled', (evt) =>{
-  console.log('PWA installed successfully');
-  downloadButton.style.display = 'none';
-
-  // Set a flag in local storage to indicate that the PWA has been installed
-  localStorage.setItem('pwaInstalled', 'true');
+console.log('PWA installed successfully');
+downloadButton.style.display="none"
 });
 
 downloadButton.addEventListener('click', (e) => {
-  if (deferredPrompt) {
-    // Show the installation prompt
-    deferredPrompt.prompt();
+if (deferredPrompt){
+deferredPrompt.prompt();
 
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the installation prompt');
-        downloadButton.style.display = 'none';
-
-        // Set a flag in local storage to indicate that the user has accepted the prompt
-        localStorage.setItem('pwaPromptAccepted', 'true');
-      } else {
-        console.log('User dismissed the installation prompt');
-      }
-
-      // Clear the deferredPrompt variable
-      deferredPrompt = null;
-    });
-  } else {
-    // Check if the user has already accepted the prompt
-    const pwaPromptAccepted = localStorage.getItem('pwaPromptAccepted');
-    if (pwaPromptAccepted) {
-      downloadButton.style.display = 'none';
-    }
-  }
-});
-
-// Check if the PWA has been installed
-const pwaInstalled = localStorage.getItem('pwaInstalled');
-if (pwaInstalled) {
-  downloadButton.style.display = 'none';
+deferredPrompt.userChoice.then((choiceResult) => {
+if (choiceResult.outcome === 'accepted'){
+console.log('User accepted the installation prompt');
+downloadButton.style.display="none";
 }
 
-var btn1 = document.getElementById("about-project-btn");
-var btn2 = document.getElementById("first-field-btn");
-var btn3 = document.getElementById("second-field-btn");
-var btn4 = document.getElementById("third-field-btn");
-var btn5 = document.getElementById("fourth-field-btn");
-var btn6 = document.getElementById("fifth-field-btn");
-var btn7 = document.getElementById("about-us-btn");
-var btn8 = document.getElementById("downloadButton");
-
-btn1.style.color = "#F9F5DC";
-
-btn1.addEventListener("click", function(){
-resetButtonColors();
-btn1.style.color = "#F9F5DC";
-});
-
-btn2.addEventListener("click", function(){
-resetButtonColors();
-btn2.style.color = "#F9F5DC";
-});
-
-btn3.addEventListener("click", function(event){
-resetButtonColors();
-btn3.style.color = "#F9F5DC";
-});
-
-btn4.addEventListener("click", function(){
-resetButtonColors();
-btn4.style.color = "#F9F5DC";
-});
-
-btn5.addEventListener("click", function(){
-resetButtonColors();
-btn5.style.color = "#F9F5DC";
-});
-
-btn6.addEventListener("click", function(){
-resetButtonColors();
-btn6.style.color = "#F9F5DC";
-});
-
-btn7.addEventListener("click", function(){
-resetButtonColors();
-btn7.style.color = "#F9F5DC";
-});
-
-btn8.addEventListener("click", function(){
-resetButtonColors();
-btn8.style.color = "#F9F5DC";
-});
-
-function resetButtonColors(){
-btn1.style.color = "";
-btn2.style.color = "";
-btn3.style.color = "";
-btn4.style.color = "";
-btn5.style.color = "";
-btn6.style.color = "";
-btn7.style.color = "";
-btn8.style.color = "";
+else{
+console.log('User dismissed the installation prompt');
 }
+
+deferredPrompt = null;
+});
+}
+
+else{
+downloadButton.style.display="none";
+}
+});
 </script>
 </body>
 </html>
