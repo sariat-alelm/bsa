@@ -530,47 +530,43 @@ const downloadButton = document.getElementById('downloadButton');
 
 // Check if the PWA is already installed
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-  downloadButton.style.display = 'none';
+  downloadButton.style.display = "none";
 } else {
-  // Show the installation button
-  downloadButton.style.display = 'inline-block';
-
   window.addEventListener('beforeinstallprompt', (e) => {
     // Store the event for later use
     deferredPrompt = e;
-  });
 
-  downloadButton.addEventListener('click', (e) => {
-    if (deferredPrompt) {
-      // Show the installation prompt
-      deferredPrompt.prompt();
-
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the installation prompt');
-          downloadButton.style.display = 'none';
-        } else {
-          console.log('User dismissed the installation prompt');
-        }
-
-        // Clear the deferredPrompt variable
-        deferredPrompt = null;
-      });
-    } else {
-      downloadButton.style.display = 'none';
-    }
-  });
-
-  window.addEventListener('load', () => {
-    // Check if the PWA was launched for the first time after installation
-    if (window.matchMedia('(display-mode: standalone)').matches) {
-      console.log('PWA installed successfully');
-      downloadButton.style.display = 'none';
-      // Change this to the text you want to use for the open app button
-    }
+    // Show the installation button
+    downloadButton.style.display = 'inline-block';
   });
 }
+
+window.addEventListener('appinstalled', () => {
+  console.log('PWA installed successfully');
+  downloadButton.style.display = 'none';
+});
+
+downloadButton.addEventListener('click', (e) => {
+  if (deferredPrompt) {
+    // Show the installation prompt
+    deferredPrompt.prompt();
+
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the installation prompt');
+        downloadButton.style.display = 'none';
+      } else {
+        console.log('User dismissed the installation prompt');
+      }
+
+      // Clear the deferredPrompt variable
+      deferredPrompt = null;
+    });
+  } else {
+    downloadButton.style.display = 'none';
+  }
+});
 
 var btn1 = document.getElementById("about-project-btn");
 var btn2 = document.getElementById("first-field-btn");
