@@ -526,61 +526,67 @@ console.log('Service Worker registration failed:', error);
 }
 
 let deferredPrompt;
-let isPwaInstalled = false;
+const downloadButton = document.getElementById('downloadButton');
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI to notify the user they can add to home screen
-  document.getElementById('downloadButton').style.display = 'block';
-  // Update button text based on PWA installation status
-  if (isPwaInstalled) {
-    document.getElementById('downloadButton').textContent = 'Open App';
+// Check if the PWA is already installed
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+  downloadButton.style.display ="none";
+} else {
+  // Check if the user has already been prompted to install the PWA
+  const pwaPromptShown = localStorage.getItem('pwaPromptShown');
+  if (!pwaPromptShown) {
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Store the event for later use
+      deferredPrompt = e;
+
+      // Show the installation button
+      downloadButton.style.display = 'inline-block';
+    });
+  }
+}
+
+downloadButton.addEventListener('appinstalled', (evt) =>{
+  console.log('PWA installed successfully');
+  downloadButton.style.display = 'none';
+
+  // Set a flag in local storage to indicate that the PWA has been installed
+  localStorage.setItem('pwaInstalled', 'true');
+});
+
+downloadButton.addEventListener('click', (e) => {
+  if (deferredPrompt) {
+    // Show the installation prompt
+    deferredPrompt.prompt();
+
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the installation prompt');
+        downloadButton.style.display = 'none';
+
+        // Set a flag in local storage to indicate that the user has accepted the prompt
+        localStorage.setItem('pwaPromptAccepted', 'true');
+      } else {
+        console.log('User dismissed the installation prompt');
+      }
+
+      // Clear the deferredPrompt variable
+      deferredPrompt = null;
+    });
   } else {
-    document.getElementById('downloadButton').textContent = 'Install App';
-  }
-});
-
-document.getElementById('downloadButton').addEventListener('click', (e) => {
-  // Show the prompt
-  deferredPrompt.prompt();
-  // Wait for the user to respond to the prompt
-  deferredPrompt.userChoice.then((choiceResult) => {
-    if (choiceResult.outcome === 'accepted') {
-      console.log('PWA installed');
-      document.getElementById('downloadButton').textContent = 'Open App';
-      isPwaInstalled = true;
-    } else {
-      console.log('PWA installation cancelled');
+    // Check if the user has already accepted the prompt
+    const pwaPromptAccepted = localStorage.getItem('pwaPromptAccepted');
+    if (pwaPromptAccepted) {
+      downloadButton.style.display = 'none';
     }
-    deferredPrompt = null;
-  });
-});
-
-window.addEventListener('appinstalled', (e) => {
-  console.log('PWA installed');
-  document.getElementById('downloadButton').textContent = 'Open App';
-  isPwaInstalled = true;
-});
-
-// Check if PWA is already installed on page load
-window.addEventListener('load', () => {
-  if (window.matchMedia('(display-mode: standalone)').matches) {
-    console.log('PWA is already installed');
-    document.getElementById('downloadButton').textContent = 'Open App';
-    isPwaInstalled = true;
   }
 });
 
-// Listen for PWA uninstallation
-window.addEventListener('appinstalled', (e) => {
-  console.log('PWA uninstalled');
-  document.getElementById('downloadButton').textContent = 'Install App';
-  isPwaInstalled = false;
-});
-
+// Check if the PWA has been installed
+const pwaInstalled = localStorage.getItem('pwaInstalled');
+if (pwaInstalled) {
+  downloadButton.style.display = 'none';
+}
 
 var btn1 = document.getElementById("about-project-btn");
 var btn2 = document.getElementById("first-field-btn");
