@@ -57,6 +57,9 @@ background-attachment:;
 display:flex;
 flex-direction:column;
 min-height:100%;
+opacity:0;
+transition:opacity 0.5s ease-in-out;
+-webkit-transition:opacity 0.5s ease-in-out;
 }
 
 /*header:*/
@@ -84,38 +87,35 @@ margin:5px 0 0 -75px;
 
 /*menu:*/
 
-.menu-icon, .close-icon{
-font-size:30px;
-font-family:icons;
-color:#2B3C56;
+.menu-close-icons{
+display:inline-block;
+cursor:pointer;
+-webkit-tap-highlight-color:transparent;
 margin:35px 10px 0 0;
-animation:;
-z-index:1;
 position:absolute;
 top:0;
 right:0;
-transition:font-size 0.1s ease;
--webkit-transition:font-size 0.1s ease;
 }
 
-.close-icon{
-color:#F9F5DC;
+.bars{
+width:35px;
+height:5px;
+background-color:#2B3C56;
+margin:6px 0;
+transition: 0.4s;
+border-radius:8px;
 }
 
-.icon-large {
-font-size:40px;
+.change .bar1{
+transform: translate(0, 11px) rotate(-45deg);
 }
 
-.menu-button, .close-button{
-background-color:transparent;
-border:none;
-position:absolute;
-right:0;
-top:0;
-width:55px;
-height:55px;
-transition-duration:0.1s;
--webkit-transition-duration: 0.1s;
+.change .bar2{
+opacity: 0;
+}
+
+.change .bar3{
+transform: translate(0, -11px) rotate(45deg);
 }
 
 .menu-box{
@@ -133,6 +133,14 @@ font-size:8px;
 opacity:1;
 background-color:#2B3C56;
 border-radius:0px 0px 0px 50px;
+overflow:hidden;
+}
+
+.menu-box4menu-close-icons{
+height:80px;
+transition:0.8s;
+box-shadow:none;
+background-color:transparent;
 }
 
 .menu-content{
@@ -147,13 +155,6 @@ color:#F9F5DC;
 text-shadow:1px 1px 5px #2C323D;
 transition-duration:0.1s;
 -webkit-transition-duration: 0.1s;
-}
-
-.menu-link, .close-link{
-position:absolute;
-top:0px;
-right:0px;
-text-align:center;
 }
 
 #installButton{
@@ -291,6 +292,17 @@ user-select:none;
 .fields{
 padding-top:150px;
 position:relative;
+opacity:0;
+transition:opacity 0.5s ease-in-out;
+-webkit-transition:opacity 0.5s ease-in-out;
+}
+
+.about-project{
+opacity:1;
+}
+
+.d-b-a{
+opacity:1;
 }
 
 .titles{
@@ -411,13 +423,35 @@ width:180px;
 margin:0px 0 0 -55px;
 }
 
-.menu-icon, .close-icon{
-font-size:25px;
-margin:27px 10px 0 0;
+.menu-close-icons{
+display:inline-block;
+cursor:pointer;
+-webkit-tap-highlight-color:transparent;
+margin:25px 5px 0 0;
+position:absolute;
+top:0;
+right:0;
 }
 
-.icon-large {
-font-size:32px;
+.bars{
+width:32px;
+height:5px;
+background-color:#2B3C56;
+margin:6px 0;
+transition: 0.4s;
+border-radius:8px;
+}
+
+.change .bar1{
+transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2{
+opacity: 0;
+}
+
+.change .bar3{
+transform: translate(0, -11px) rotate(45deg);
 }
 
 .menu-box{
@@ -511,16 +545,15 @@ margin:10px 165px 0 0;
 <center>
 <img src="images/wisdom.svg" alt="" class="header-wisdom">
 </center>
-<button onclick="openMenu()" class="menu-button">
-<span class="menu-icon" id="menu-icon">m</span>
-</button>
 </div>
 
 <div class="menu-box" id="menu-box">
-<a href="javascript:void(0)" class="close-link" onclick="closeMenu()" class="menu-link">
-<button class="close-button">
-<span class="close-icon" id="close-icon">c</span>
-</button>
+<a href="javascript:void(0)" style="-webkit-tap-highlight-color:transparent;">
+<div class="menu-close-icons" onclick="menuCloseIcons(this)">
+<div class="bars bar1"></div>
+<div class="bars bar2"></div>
+<div class="bars bar3"></div>
+</div>
 </a>
 <br><br><br><br><br><br>
 <button class="menu-content" id="about-project-btn" onclick="document.location.href='#about-project'">
@@ -667,18 +700,34 @@ margin:10px 165px 0 0;
 <img src="images/copyright.svg" alt="" class="footer-copyright">
 </div>
 <script>
-function openMenu(){
-document.getElementById("menu-box").style.height = "680px"; document.getElementById("menu-icon").classList.add("icon-large");
-setTimeout(function(){
-document.getElementById("menu-icon").classList.remove("icon-large");
-}, 10);
+window.addEventListener('load',function(){
+document.body.classList.add('d-b-a');
+});
+
+var menuBox = document.getElementById("menu-box");
+menuBox.classList.add('menu-box4menu-close-icons');
+
+var bars = document.getElementsByClassName('bars');
+
+function menuCloseIcons(oc) {
+if (menuBox.clientHeight <= 80) {
+for (var i = 0; i < bars.length; i++) {
+bars[i].style.backgroundColor = "#F9F5DC";
+}
+menuBox.style.height = "680px";
+menuBox.classList.remove('menu-box4menu-close-icons');
+oc.classList.add("change");
 }
 
-function closeMenu(){
-document.getElementById("menu-box").style.height = "0"; document.getElementById("menu-icon").classList.remove("icon-large"); document.getElementById("close-icon").classList.add("icon-large");
-setTimeout(function(){
-document.getElementById("close-icon").classList.remove("icon-large");
-}, 10);
+
+else{
+for (var i = 0; i < bars.length; i++) {
+bars[i].style.backgroundColor = "#2B3C56";
+}
+menuBox.style.height = "80px";
+menuBox.classList.add('menu-box4menu-close-icons');
+oc.classList.remove("change");
+}
 }
 
 if ('serviceWorker' in navigator) {
@@ -697,9 +746,7 @@ const openButton = document.getElementById('openButton');
 
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
 installButton.style.display ="none";
-function openMenu(){
-document.getElementById("menu-box").style.height = "600px"; 
-}
+menuBox.style.height = "600px";
 }
 
 else{
@@ -720,7 +767,7 @@ deferredPrompt = null;
 else{
 installButton.style.display="none";
 function openMenu(){
-document.getElementById("menu-box").style.height ="600px";
+menuBox.style.height = "600px";
 }
 //openButton.style.display="inline-block";
 }
@@ -734,7 +781,7 @@ if (choiceResult.outcome === 'accepted'){
 console.log('User accepted the installation prompt');
 installButton.style.display="none";
 function openMenu(){
-document.getElementById("menu-box").style.height ="600px";
+menuBox.style.height = "600px";
 }
 //openButton.style.display="inline-block";
 }
@@ -749,6 +796,104 @@ console.log('User dismissed the installation prompt');
 /*openButton.addEventListener('click', function(){
 window.location.href = 'https://sariat-alelm.github.io/bsa/','_blank';
 });*/
-</script
+
+let aboutProject = document.querySelector('.about-project');
+
+window.addEventListener('scroll', function() {
+let aboutProjectPosition = aboutProject.getBoundingClientRect().top;
+
+if (window.pageYOffset >= aboutProjectPosition) {
+aboutProject.classList.add('d-b-a');
+}
+
+else{
+aboutProject.style.opacity ="1";
+}
+});
+
+let firstField = document.querySelector('.first-field');
+
+window.addEventListener('scroll', function() {
+let firstFieldPosition = firstField.getBoundingClientRect().top;
+
+if (window.pageYOffset >= firstFieldPosition) {
+firstField.classList.add('d-b-a');
+}
+
+else{
+firstField.style.opacity ="1";
+}
+});
+
+let secondField = document.querySelector('.second-field');
+
+window.addEventListener('scroll', function() {
+let secondFieldPosition = secondField.getBoundingClientRect().top;
+
+if (window.pageYOffset >= secondFieldPosition) {
+secondField.classList.add('d-b-a');
+}
+
+else{
+secondField.style.opacity ="1";
+}
+});
+
+let thirdField = document.querySelector('.third-field');
+
+window.addEventListener('scroll', function() {
+let thirdFieldPosition = thirdField.getBoundingClientRect().top;
+
+if (window.pageYOffset >= thirdFieldPosition) {
+thirdField.classList.add('d-b-a');
+}
+
+else{
+thirdField.style.opacity ="1";
+}
+});
+
+let fourthField = document.querySelector('.fourth-field');
+
+window.addEventListener('scroll', function() {
+let fourthFieldPosition = fourthField.getBoundingClientRect().top;
+
+if (window.pageYOffset >= fourthFieldPosition) {
+fourthField.classList.add('d-b-a');
+}
+
+else{
+fourthField.style.opacity ="1";
+}
+});
+
+let fifthField = document.querySelector('.fifth-field');
+
+window.addEventListener('scroll', function() {
+let fifthFieldPosition = fifthField.getBoundingClientRect().top;
+
+if (window.pageYOffset >= fifthFieldPosition) {
+fifthField.classList.add('d-b-a');
+}
+
+else{
+fifthField.style.opacity ="1";
+}
+});
+
+let aboutUs = document.querySelector('.about-us');
+
+window.addEventListener('scroll', function() {
+let aboutUsPosition = aboutUs.getBoundingClientRect().top;
+
+if (window.pageYOffset >= aboutUsPosition) {
+aboutUs.classList.add('d-b-a');
+}
+
+else{
+aboutUs.style.opacity ="1";
+}
+});
+</script>
 </body>
 </html>
