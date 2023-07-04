@@ -119,7 +119,7 @@ transform: translate(0, -11px) rotate(45deg);
 }
 
 .menu-box{
-height:0;
+height:80px;
 width:50%;
 position:fixed;
 z-index:1;
@@ -127,11 +127,12 @@ top:0;
 right:0;
 overflow-x:hidden;
 transition:0.8s;
+-webkit-transition:0.8;
 box-shadow:0px 0px 12px #2C323D;
 text-align:center;
 font-size:8px;
 opacity:1;
-background-color:#2B3C56;
+background-color:transparent;
 border-radius:0px 0px 0px 50px;
 overflow:hidden;
 }
@@ -139,6 +140,7 @@ overflow:hidden;
 .menu-box4menu-close-icons{
 height:80px;
 transition:0.8s;
+-webkit-transition:0.8;
 box-shadow:none;
 background-color:transparent;
 }
@@ -292,13 +294,9 @@ user-select:none;
 .fields{
 padding-top:150px;
 position:relative;
-opacity:0;
+opacity:1;
 transition:opacity 0.5s ease-in-out;
 -webkit-transition:opacity 0.5s ease-in-out;
-}
-
-.about-project{
-opacity:1;
 }
 
 .d-b-a{
@@ -714,6 +712,8 @@ if (menuBox.clientHeight <= 80) {
 for (var i = 0; i < bars.length; i++) {
 bars[i].style.backgroundColor = "#F9F5DC";
 }
+menuBox.style.backgroundColor ="#2B3C56"
+menuBox.style.boxShadow ="0px 0px 12px #2C323D";
 menuBox.style.height = "680px";
 menuBox.classList.remove('menu-box4menu-close-icons');
 oc.classList.add("change");
@@ -724,6 +724,8 @@ else{
 for (var i = 0; i < bars.length; i++) {
 bars[i].style.backgroundColor = "#2B3C56";
 }
+menuBox.style.backgroundColor ="transparent"
+menuBox.style.boxShadow ="none";
 menuBox.style.height = "80px";
 menuBox.classList.add('menu-box4menu-close-icons');
 oc.classList.remove("change");
@@ -796,104 +798,6 @@ console.log('User dismissed the installation prompt');
 /*openButton.addEventListener('click', function(){
 window.location.href = 'https://sariat-alelm.github.io/bsa/','_blank';
 });*/
-
-let aboutProject = document.querySelector('.about-project');
-
-window.addEventListener('scroll', function() {
-let aboutProjectPosition = aboutProject.getBoundingClientRect().top;
-
-if (window.pageYOffset >= aboutProjectPosition) {
-aboutProject.classList.add('d-b-a');
-}
-
-else{
-aboutProject.style.opacity ="1";
-}
-});
-
-let firstField = document.querySelector('.first-field');
-
-window.addEventListener('scroll', function() {
-let firstFieldPosition = firstField.getBoundingClientRect().top;
-
-if (window.pageYOffset >= firstFieldPosition) {
-firstField.classList.add('d-b-a');
-}
-
-else{
-firstField.style.opacity ="1";
-}
-});
-
-let secondField = document.querySelector('.second-field');
-
-window.addEventListener('scroll', function() {
-let secondFieldPosition = secondField.getBoundingClientRect().top;
-
-if (window.pageYOffset >= secondFieldPosition) {
-secondField.classList.add('d-b-a');
-}
-
-else{
-secondField.style.opacity ="1";
-}
-});
-
-let thirdField = document.querySelector('.third-field');
-
-window.addEventListener('scroll', function() {
-let thirdFieldPosition = thirdField.getBoundingClientRect().top;
-
-if (window.pageYOffset >= thirdFieldPosition) {
-thirdField.classList.add('d-b-a');
-}
-
-else{
-thirdField.style.opacity ="1";
-}
-});
-
-let fourthField = document.querySelector('.fourth-field');
-
-window.addEventListener('scroll', function() {
-let fourthFieldPosition = fourthField.getBoundingClientRect().top;
-
-if (window.pageYOffset >= fourthFieldPosition) {
-fourthField.classList.add('d-b-a');
-}
-
-else{
-fourthField.style.opacity ="1";
-}
-});
-
-let fifthField = document.querySelector('.fifth-field');
-
-window.addEventListener('scroll', function() {
-let fifthFieldPosition = fifthField.getBoundingClientRect().top;
-
-if (window.pageYOffset >= fifthFieldPosition) {
-fifthField.classList.add('d-b-a');
-}
-
-else{
-fifthField.style.opacity ="1";
-}
-});
-
-let aboutUs = document.querySelector('.about-us');
-
-window.addEventListener('scroll', function() {
-let aboutUsPosition = aboutUs.getBoundingClientRect().top;
-
-if (window.pageYOffset >= aboutUsPosition) {
-aboutUs.classList.add('d-b-a');
-}
-
-else{
-aboutUs.style.opacity ="1";
-}
-});
 </script>
 </body>
 </html>
