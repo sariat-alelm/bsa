@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href=""> 
+<title></title> 
+<style>
+@font-face{
+font-family:"utnb";
+src:url("https://html-css-js--sariatalelm.repl.co/uthman-tn-bold.woff2") format("woff2");
+}
+@font-face{
+font-family:"kitab";
+src:url("https://html-css-js--sariatalelm.repl.co/kitab.woff2") format("woff2");
+}
+@font-face{
+font-family:"amin";
+src:url("https://html-css-js--sariatalelm.repl.co/amin.woff2") format("woff2");
+}
+*{
+margin:0;
+padding:0;
+}
+
+.pages{
+width:100%;
+border:;
+height:auto;
+}
+
+.page1{
+background-image:url("https://html-css-js--sariatalelm.repl.co/main.svg");
+background-repeat:no-repeat;
+background-size:100% auto;
+}
+
+.spages{
+background-image:url("https://html-css-js--sariatalelm.repl.co/smain.svg");
+background-repeat:no-repeat;
+background-size:100% auto;
+}
+
+.templates{
+width:100%;
+z-index:-1;
+display:block;
+visibility:hidden;
+}
+
+.title{
+font-family:utnb;
+text-align:center;
+font-size:35px;
+padding:69px 69px 50px 69px;
+color:#2C323D;
+}
+
+.headings{
+font-family:amin;
+font-size:15px;
+color:#2B3C56;
+padding:0 0px 10px 0;
+}
+
+.content{
+color:#3C4F75;
+font-family:kitab;
+font-size:14px;
+padding:5px 8px 0 25px;
+}
+
+.mcontent{
+border:red 0px solid;
+padding:0px 20px 10px 10px;
+width:90%;
+height:75%;
+overflow:visible;
+}
+
+.scontent{
+border:red 0px solid;
+padding:80px 30px 10px 10px;
+width:90%;
+height:75%;
+overflow:visible;
+}
+
+.verses{
+color:#060;
+}
+
+.ending{
+text-align:center;
+font-size:14px;
+padding-top:15px;
+}
+
+.copyrights{
+margin:0 auto;
+text-align:center;
+}
+</style>
+</head>
+<body>
+<div class="pages page1">
+<p class="title">
+(التوحيد)
+</p>
+<div class="content mcontent">
+
+</div>
+</div>
+
+<div class="pages page2 spages">
+<div class="content scontent con2">
+
+</div>
+</div>
+
+<div class="pages page3 spages">
+<div class="content scontent con3">
+
+</div>
+</div>
+
+<div class="pages page4 spages">
+<div class="content scontent">
+
+</div>
+</div>
+
+<div class="pages page5 spages">
+<div class="content scontent con5">
+
+</div>
+</div>
+
+<div class="pages spages page6">
+<div class="content scontent">
+
+<p class="ending">
+اللهم صلِّ وسلم على نبينا محمد وعلى آله وصحبه أجمعين
+<br>
+تم وبحمد الله
+</p>
+<br>
+<p class="copyrights">
+حقوق النشر محفوظة لموقع: الإسلام سؤال وجواب.
+</p>
+</div>
+</div>
+
+<img src="main.svg" alt="" class="templates">
+<script>
+window.addEventListener('load', function() {
+var templates = document.querySelector('.templates');
+var page1 = document.querySelector('.page1');
+page1.style.height = templates.offsetHeight + 'px';
+var page2 = document.querySelector('.page2');
+page2.style.height = templates.offsetHeight + 'px';
+var page3 = document.querySelector('.page3');
+page3.style.height = templates.offsetHeight + 'px';
+var page4 = document.querySelector('.page4');
+page4.style.height = templates.offsetHeight + 'px';
+var page5 = document.querySelector('.page5');
+page5.style.height = templates.offsetHeight + 'px';
+var page6 = document.querySelector('.page6');
+page6.style.height = templates.offsetHeight + 'px';
+});
+</script>
+</body>
+</html>
