@@ -636,7 +636,8 @@ document.getElementById("menu-icon").classList.remove("icon-large");
 
 function closeMenu(){
 document.getElementById("menu-box").style.height = "0"; document.getElementById("menu-icon").classList.remove("icon-large"); document.getElementById("close-icon").classList.add("icon-large");
-setTimeout(function(){ document.getElementById("close-icon").classList.remove("icon-large");
+setTimeout(function(){
+document.getElementById("close-icon").classList.remove("icon-large");
 }, 10);
 }
 
@@ -667,17 +668,20 @@ downloadButton.style.display = 'inline-block';
 });
 }
 
-window.addEventListener('load',function(){
-  window.addEventListener('beforeinstallprompt', (e) => {
-    if (downloadButton) {
-      e.preventDefault();
-      deferredPrompt = e;
-      downloadButton.style.display = 'inline-block';
-    } else {
-      downloadButton.style.display = 'none';
-    }
-  });
-});
+if (deferredPrompt){
+e.preventDefault();
+deferredPrompt.prompt();
+setTimeout(function(){
+deferredPrompt = null;
+}, 10);
+}
+
+else{
+downloadButton.style.display="none";
+function openMenu(){
+document.getElementById("menu-box").style.height = "600px"; 
+}
+}
 
 downloadButton.addEventListener('click', (e) => {
 if (deferredPrompt){
@@ -697,7 +701,8 @@ console.log('User dismissed the installation prompt');
 }
 });
 }
+
 });
-</script>
+</script
 </body>
 </html>
