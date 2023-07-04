@@ -548,12 +548,12 @@ margin:10px 165px 0 0;
 <i class="fas fa-download" id="installIcon" aria-hidden="true" style=""></i>
 تثبيت التطبيق
 </button>
-<button class="menu-content" id="openButton" style="">
+<!--<button class="menu-content" id="openButton" style="">
 <i class="fas fa-external-link-alt" id="openIcon" aria-hidden="true" style=""></i>
 <span style="position:relative; top:-2px;">
 فتح التطبيق
 </span>
-</button>
+</button>-->
 </div>
 
 <div id="about-project" class="fields about-project">
@@ -668,7 +668,7 @@ margin:10px 165px 0 0;
 </div>
 <script>
 function openMenu(){
-document.getElementById("menu-box").style.height = "670px"; document.getElementById("menu-icon").classList.add("icon-large");
+document.getElementById("menu-box").style.height = "665px"; document.getElementById("menu-icon").classList.add("icon-large");
 setTimeout(function(){
 document.getElementById("menu-icon").classList.remove("icon-large");
 }, 10);
@@ -719,7 +719,10 @@ deferredPrompt = null;
 
 else{
 installButton.style.display="none";
-openButton.style.display="inline-block";
+function openMenu(){
+document.getElementById("menu-box").style.height ="600px";
+}
+//openButton.style.display="inline-block";
 }
 
 installButton.addEventListener('click', (e) => {
@@ -730,7 +733,10 @@ deferredPrompt.userChoice.then((choiceResult) => {
 if (choiceResult.outcome === 'accepted'){
 console.log('User accepted the installation prompt');
 installButton.style.display="none";
-openButton.style.display="inline-block";
+function openMenu(){
+document.getElementById("menu-box").style.height ="600px";
+}
+//openButton.style.display="inline-block";
 }
 
 else{
@@ -740,9 +746,9 @@ console.log('User dismissed the installation prompt');
 }
 });
 
-openButton.addEventListener('click', function(){
+/*openButton.addEventListener('click', function(){
 window.location.href = 'https://sariat-alelm.github.io/bsa/','_blank';
-});
+});*/
 </script
 </body>
 </html>
