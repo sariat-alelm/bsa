@@ -667,12 +667,16 @@ downloadButton.style.display = 'inline-block';
 });
 }
 
-downloadButton.addEventListener('appinstalled', (evt) =>{
-console.log('PWA installed successfully');
-downloadButton.style.display="none";
-function openMenu(){
-document.getElementById("menu-box").style.height = "600px"; 
-}
+window.addEventListener('load',function(){
+  window.addEventListener('beforeinstallprompt', (e) => {
+    if (downloadButton) {
+      e.preventDefault();
+      deferredPrompt = e;
+      downloadButton.style.display = 'inline-block';
+    } else {
+      downloadButton.style.display = 'none';
+    }
+  });
 });
 
 downloadButton.addEventListener('click', (e) => {
@@ -691,16 +695,7 @@ document.getElementById("menu-box").style.height = "600px";
 else{
 console.log('User dismissed the installation prompt');
 }
-
-deferredPrompt = null;
 });
-}
-
-else{
-downloadButton.style.display="none";
-function openMenu(){
-document.getElementById("menu-box").style.height = "600px"; 
-}
 }
 });
 </script>
