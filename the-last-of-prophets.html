@@ -8,12 +8,12 @@
 <meta name="description" content="بحث عن خاتم الأنبياء ﷺ - ولادة النبي محمد ﷺ - أول زوجة يتزوجها رسول الله ﷺ - النبي محمد ﷺ يختلي بنفسه في الغار - نزول جبريل على محمد ﷺ في غار حراء - النبي ﷺ يبلغ الناس بأنه مرسل من الله تبارك وتعالى - الكفار يعذبون ويقتلون أتباع النبي محمد ﷺ - الهجرة إلى المدينة المنورة والمشركون يطاردون النبي ﷺ - دولة الإسلام بدأت من المدينة المنورة - فتح مكة المكرمة والجهاد في سبيل الله - وفاة الرسول محمد ﷺ - مقدم من بحوث سارية العلم.">
 <meta name="theme-color" content="#000000">
 <link rel="manifest" href="manifest.json"/>
-<link rel="apple-touch-icon" href="bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
-<link rel="icon" href="bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
-<link rel="apple-touch-icon" href="bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
-<link rel="icon" href="bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
-<link rel="Shortcut icon" href="bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
-<link rel="Shortcut icon" href="bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="https://sariat-alelm.github.io/bsa/bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
+<link rel="icon" href="https://sariat-alelm.github.io/bsa/bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
+<link rel="apple-touch-icon" href="https://sariat-alelm.github.io/bsa/bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://sariat-alelm.github.io/bsa/bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
+<link rel="Shortcut icon" href="https://sariat-alelm.github.io/bsa/bohoth-sariat-alelm-favicon.svg" sizes="32x32" type="image/svg+xml">
+<link rel="Shortcut icon" href="https://sariat-alelm.github.io/bsa/bohoth-sariat-alelm-favicon.png" sizes="32x32" type="image/png">
 <title>بحث عن خاتم الانبياء ﷺ | بحوث سارية العلم</title> 
 <style>
 /*fonts:*/
@@ -55,6 +55,13 @@ background-attachment:;
 display:flex;
 flex-direction:column;
 min-height:100%;
+opacity:0;
+transition:opacity 0.5s ease-in-out;
+-webkit-transition:opacity 0.5s ease-in-out;
+}
+
+.d-b-a{
+opacity:1;
 }
 
 
@@ -269,7 +276,7 @@ font-size:15px;
 </button>
 </div>
 <div class="download-btn-div">
-<button class="download-btn" onclick="document.location.href='pdfs/the-last-of-prophets/خاتم الأنبياء.pdf'">
+<button class="download-btn" onclick="document.location.href='pdfs/the-last-of-prophets/خاتم الأنبياء.pdf'" download>
 اضغط هنا؛ لتحميل البحث بصيغة ملف pdf.
 </button>
 </div>
@@ -284,6 +291,10 @@ font-size:15px;
 <img src="images/copyright.svg" alt="" class="footer-copyright">
 </div>
 <script>
+window.addEventListener('load',function(){
+document.body.classList.add('d-b-a');
+});
+
 var backBtn = document.querySelector(".back-button");
 
 backBtn.addEventListener("click", function(){
