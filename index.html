@@ -745,7 +745,8 @@ bars[i].style.backgroundColor = "#F9F5DC";
 }
 menuBox.style.backgroundColor ="#2B3C56"
 menuBox.style.boxShadow ="0px 0px 12px #2C323D";
-menuBox.style.height = "680px";
+menuBox.style.height = "60%";
+menuBox.style.overflow ="scroll";
 menuBox.classList.remove('menu-box4menu-close-icons');
 oc.classList.add("change");
 }
@@ -779,7 +780,7 @@ const openButton = document.getElementById('openButton');
 
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
 installButton.style.display ="none";
-menuBox.style.height = "600px";
+menuBox.style.height = "52%";
 }
 
 else{
@@ -800,7 +801,7 @@ deferredPrompt = null;
 else{
 installButton.style.display="none";
 function openMenu(){
-menuBox.style.height = "600px";
+menuBox.style.height = "52%";
 }
 //openButton.style.display="inline-block";
 }
@@ -814,7 +815,7 @@ if (choiceResult.outcome === 'accepted'){
 console.log('User accepted the installation prompt');
 installButton.style.display="none";
 function openMenu(){
-menuBox.style.height = "600px";
+menuBox.style.height = "52%";
 }
 //openButton.style.display="inline-block";
 }
