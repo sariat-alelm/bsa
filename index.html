@@ -128,7 +128,7 @@ right:0;
 overflow-x:hidden;
 transition:0.8s;
 -webkit-transition:0.8;
-box-shadow:0px 0px 12px #2C323D;
+box-shadow:none;
 text-align:center;
 font-size:8px;
 opacity:1;
@@ -366,6 +366,10 @@ width:100%;
 background-color:#2B3C56;
 height:120px;
 box-shadow:0px 0px 10px #2C323D;
+position:relative;
+bottom:0;
+left:0;
+right:0;
 margin:auto 0 0 0;
 }
 
@@ -609,7 +613,7 @@ margin:10px 165px 0 0;
 قضيتنا
 </p>
 <div class="descriptions description1-2">
-قضيتنا هي قضية كل عربي وكل مسلم شريف نقي طاهر القلب والروح فهي انتهاك لحرمة المسجد الأقصى ولحرية إخواننا في فلسطين وقتلهم وتعذيبهم.
+قضيتنا هي قضية كل مسلم، وكل عربي شريف، طاهر القلب، فهي انتهاك لحرمة المسجد الأقصى ولحرية إخواننا في فلسطين وقتلهم وتعذيبهم.
 <br>
 اللهم يا حي يا قيوم اجعل كل شهيد في جنان الفردوس، واللهم اجعل فلسطين آمنة مستقرة محررة من كل احتلال يارب العالمين، اللهم آمين.
 </div>
@@ -775,7 +779,7 @@ const openButton = document.getElementById('openButton');
 function checkStandaloneMode() {
   if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
     installButton.style.display ="none";
-    menuBox.style.height = "52%";
+    menuBox.style.height = "fit-content";
 menuBox.style.boxShadow ="none";
   } else {
     installButton.style.display = 'none';
@@ -810,7 +814,7 @@ installButton.addEventListener('click', (e) => {
       if (choiceResult.outcome === 'accepted') {
         console.log('User accepted the installation prompt');
         installButton.style.display = 'none';
-        menuBox.style.height = "52%";
+        menuBox.style.height = "fit-content";
 menuBox.style.boxShadow ="none";
       } else {
         console.log('User dismissed the installation prompt');
