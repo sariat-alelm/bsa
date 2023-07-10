@@ -16,6 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
  
+ 
+if ('standalone' in window.navigator && !window.navigator.standalone) {
+  var message = "To install this app on your home screen, tap the 'Share' icon and select 'Add to Home Screen'.";
+  alert(message);
+}
+ 
+
 var menuBox = document.getElementById("menu-box");
 menuBox.classList.add('menu-box4menu-close-icons');
 
