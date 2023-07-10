@@ -16,11 +16,19 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
  
- 
-if ('standalone' in window.navigator && !window.navigator.standalone) {
-  var message = "To install this app on your home screen, tap the 'Share' icon and select 'Add to Home Screen'.";
-  alert(message);
+  
+var isSafariStandalone = window.navigator.userAgent.match(/(iPhone|iPod|iPad).*Apple-iPhone/i);
+
+if (isSafariStandalone) {
+  var installButton = document.getElementById("installButton");
+  installButton.style.display = "block";
+
+  installButton.addEventListener("click", function() {
+    // Show installation prompt
+    window.prompt("Add this app to your home screen", "");
+  });
 }
+ 
  
 
 var menuBox = document.getElementById("menu-box");
