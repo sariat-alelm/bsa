@@ -21,7 +21,7 @@ menuBox.classList.add('menu-box4menu-close-icons');
 
 var bars = document.getElementsByClassName('bars');
 
-if (menuBox.clientHeight <= 100) {
+if (menuBox.clientHeight <= 80) {
 for (var i = 0; i < bars.length; i++) {
 bars[i].style.backgroundColor = "#F9F5DC";
 }
@@ -39,7 +39,7 @@ bars[i].style.backgroundColor = "#2B3C56";
 }
 menuBox.style.backgroundColor = "transparent";
 menuBox.style.boxShadow = "none";
-menuBox.style.height = "100px";
+menuBox.style.height = "80px";
 menuBox.style.overflow = "hidden";
 menuBox.classList.add('menu-box4menu-close-icons');
 oc.classList.remove("change");
