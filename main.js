@@ -1,20 +1,22 @@
-if ('serviceWorker' in navigator){
+if ('serviceWorker' in navigator) {
 navigator.serviceWorker.register('sw.js')
 .then((registration) => {
+console.log('Service Worker registered with scope:', registration.scope);
 })
 .catch((error) => {
+console.log('Service Worker registration failed:', error);
 });
 }
-
-window.addEventListener('beforeinstallprompt', (event) => {
-deferredPrompt = event;
-});
 
 window.addEventListener('load', function(){
 document.body.classList.add('d-b-a');
 });
 
 if (document.title == "بحوث سارية العلم | سارية العلم"){
+window.addEventListener('beforeinstallprompt', (event) => {
+deferredPrompt = event;
+});
+
 function menuCloseIcons(oc) {
 var menuBox = document.getElementById("menu-box");
 menuBox.classList.add('menu-box4menu-close-icons');
