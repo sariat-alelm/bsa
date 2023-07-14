@@ -11,64 +11,45 @@ console.log('Service Worker registration failed:', error);
 window.addEventListener('load', function(){
 document.body.classList.add('d-b-a');
 });
-
+ 
 if (document.title == "بحوث سارية العلم | سارية العلم"){
+window.addEventListener('load', function(){
+document.querySelector(".burger-menu input").removeAttribute("checked");
+});
 window.addEventListener('beforeinstallprompt', (event) => {
 deferredPrompt = event;
 });
-
-function menuCloseIcons(oc) {
-var menuBox = document.getElementById("menu-box");
-menuBox.classList.add('menu-box4menu-close-icons');
-
-var bars = document.getElementsByClassName('bars');
-
-if (menuBox.clientHeight <= 80) {
-for (var i = 0; i < bars.length; i++) {
-bars[i].style.backgroundColor = "#F9F5DC";
-}
-menuBox.style.backgroundColor = "#2B3C56";
-menuBox.style.boxShadow = "0px 0px 12px #2C323D";
-menuBox.style.height = "85%";
-menuBox.style.overflow = "scroll";
-menuBox.classList.remove('menu-box4menu-close-icons');
-oc.classList.add("change");
-}
-
-else {
-for (var i = 0; i < bars.length; i++) {
-bars[i].style.backgroundColor = "#2B3C56";
-}
-menuBox.style.backgroundColor = "transparent";
-menuBox.style.boxShadow = "none";
-menuBox.style.height = "80px";
-menuBox.style.overflow = "hidden";
-menuBox.classList.add('menu-box4menu-close-icons');
-oc.classList.remove("change");
-}
-}
-
  
 var overlay = document.querySelector('.overlay');
 var popup = document.querySelector('.popup');
 var closePopup = document.querySelector('.close-popup');
 var installButton = document.querySelector("#installButton");
 
-installButton.addEventListener("click", function(){
-overlay.style.opacity = "0"; 
-setTimeout(function() {
-overlay.style.opacity = "1"; 
-document.body.style.overflow = "hidden";
-}, 200);
-overlay.style.display = "block";
+installButton.addEventListener("click", function() {
+  overlay.style.opacity = "0";
+  setTimeout(function() {
+    overlay.style.opacity = "1";
+    document.body.style.overflow = "hidden";
+  }, 200);
+  overlay.style.display = "block";
 });
 
-closePopup.addEventListener("click", function(){
-overlay.style.opacity = "0"; 
-setTimeout(function() {
-overlay.style.display = "none";
-document.body.style.overflow = "scroll";
-}, 200);
+closePopup.addEventListener("click", function() {
+  overlay.style.opacity = "0";
+  setTimeout(function() {
+    overlay.style.display = "none";
+    document.body.style.overflow = "scroll";
+  }, 200);
+});
+
+overlay.addEventListener("click", function(event) {
+  if (event.target === overlay) {
+    overlay.style.opacity = "0";
+    setTimeout(function() {
+      overlay.style.display = "none";
+      document.body.style.overflow = "scroll";
+    }, 200);
+  }
 });
 
 var aboutProjectBtn = document.getElementById("about-project-btn");

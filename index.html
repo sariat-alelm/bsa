@@ -25,15 +25,12 @@
 <img src="images/wisdom.svg" alt="" class="header-wisdom">
 </center>
 </div>
-<div class="menu-box" id="menu-box">
-<a href="javascript:void(0)" style="-webkit-tap-highlight-color:transparent;">
-<div class="menu-close-icons" onclick="menuCloseIcons(this)">
-<div class="bars bar1"></div>
-<div class="bars bar2"></div>
-<div class="bars bar3"></div>
-</div>
-</a>
-<br><br><br><br><br><br>
+
+<label class="burger-menu">
+<input type="checkbox"/>
+</label>
+<aside class="sidebar">
+<nav>
 <button class="menu-content" id="about-project-btn" onclick="document.location.href='#about-project'">
 ❖ عن المشروع
 </button>
@@ -58,11 +55,14 @@
 <button class="menu-content" id="about-us-btn" onclick="document.location.href='#about-us'">
 ❖ من نحن؟
 </button>
+<center>
 <button class="menu-content" id="installButton" style="">
 <i class="fas fa-download" id="installIcon" aria-hidden="true" style=""></i>
 تثبيت التطبيق
 </button>
-</div>
+</center>
+</nav>
+</aside>
 
 <div class="overlay">
 <div class="popup">
@@ -89,8 +89,8 @@
 باستخدام متصفح سفاري "Safari"
 [<i class="fab fa-safari" aria-hidden="true" style="display:inline-block;"></i>]
 ، انقر على زر المشاركة
-[<img src="images/share-rounded.svg" class="share-rounded">]
-، ثم انقر على "إضافة إلى الشاشة الرئيسية" أو "Add to home screen".
+[<img src="../BSA/images/share-rounded.svg" class="share-rounded">]
+، ثم انقر على "إضافة إلى الصفحة الرئيسية" أو "Add to home screen".
 </p>
 <br>
 <h3 class="popup-stitles">
@@ -234,16 +234,5 @@
 </div>
 <script src="scripts/jquery.js"></script>
 <script src="main.js"></script>
-<script>
-if ('serviceWorker' in navigator) {
-navigator.serviceWorker.register('sw.js')
-.then((registration) => {
-console.log('Service Worker registered with scope:', registration.scope);
-})
-.catch((error) => {
-console.log('Service Worker registration failed:', error);
-});
-}
-</script>
 </body>
 </html>
